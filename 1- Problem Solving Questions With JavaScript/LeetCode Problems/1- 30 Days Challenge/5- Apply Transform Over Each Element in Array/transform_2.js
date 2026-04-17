@@ -19,17 +19,21 @@ const newArray = map(arr, plusone); // [2,3,4]
 The function increases each value in the array by one. 
 */
 
+// Second approach using for...of loop
 let map = function(arr, fn) {
     let newArray = [];
+    let index = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-        newArray.push(fn(arr[i], i));
+    for (const element of arr) {
+        newArray.push(fn(element, index));
+        index++;
     }
 
     return newArray;
 }
 
-let arr = [1, 2, 3];
-let plusone = function(n) {return n + 1};
+// For...of loop map function call
+let arr = [10, 20, 30]
+let plusone = function(n) { return n + 1; };
 let result = map(arr, plusone);
 console.log(result);
