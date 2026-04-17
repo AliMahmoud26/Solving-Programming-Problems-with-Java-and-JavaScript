@@ -33,6 +33,7 @@ The function increases each value in the array by one.
 // let result = map(arr, plusone);
 // console.log(result);
 
+
 // First approach using for loop
 let map = function(arr, fn) {
     let newArray = [];
@@ -44,42 +45,8 @@ let map = function(arr, fn) {
     return newArray;
 }
 
-// Second approach using for...of loop
-let ofMap = function(arr, fn) {
-    let newArray = [];
-    let index = 0;
-
-    for (const element of arr) {
-        newArray.push(fn(element, index));
-        index++;
-    }
-
-    return newArray;
-}
-
-// Third approach using for...each loop
-let eachMap = function(arr, fn) {
-    let newArray = [];
-
-    arr.forEach((element, index) => {
-        newArray.push(fn(element, index));
-    });
-
-    return newArray;
-}
-
 // Map function calls
 let arr = [1, 2, 3]
 let plusone = function(n) {return n + 1}
 let result = map(arr, plusone)
 console.log(result);
-
-// For...of loop map function call
-let ofArr = [10, 20, 30]
-let ofResult = ofMap(ofArr, plusone)
-console.log(ofResult);
-
-// For...each loop map function call
-let eachArr = [100, 200, 300]
-let eachResult = eachMap(eachArr, plusone)
-console.log(eachResult);
